@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Metronome"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Icon="./Assets/metronome.ico"
+        ResizeMode="NoResize"
+        Title="'nome" Height="200" Width="150">
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center">
+
+            <TextBlock Text="{Binding Note}" HorizontalAlignment="Center" Margin="10" FontSize="60"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+                        <Setter Property="LineHeight" Value="16" />
+                    </Style>
+                </StackPanel.Resources>
+                <TextBox x:Name="Tempo" Text="120" Width="30" TextAlignment="Right" BorderThickness="0"/>
+                <TextBlock Text="bpm" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding IncludeFlats}" Margin="10,0">
+                    <TextBlock FlowDirection="LeftToRight" Text="Flats" />
+                </CheckBox>
+
+                <CheckBox IsChecked="{Binding IncludeSharps}" Margin="10,0">
+                    <TextBlock FlowDirection="LeftToRight" Text="Sharps" />
+                </CheckBox>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Window>
